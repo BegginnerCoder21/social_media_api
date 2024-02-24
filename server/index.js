@@ -5,7 +5,8 @@ const helmet = require('helmet');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const dbConnect = require('./config/dbConnect');
-const router = require('./routes/userRoute');
+router = require('./routes/mainRoute');
+
 
 
 app.use(express.json());
@@ -17,7 +18,7 @@ app.use(helmet());
 //Connexion à la base donnée
 dbConnect();
 
-app.use('api/user',router);
+app.use('/api', router);
 
 mongoose.connection.once('open', () => {
     console.log("Connexion à la db effectué avec succès");
