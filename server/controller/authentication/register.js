@@ -1,4 +1,4 @@
-userModel = require('../../models/user');
+const userModel = require('../../models/user');
 const bcrypt = require('bcrypt');
 
 const register = async(req, res) => {
@@ -14,7 +14,7 @@ const register = async(req, res) => {
     }
 
      
-    usernameExist = await userModel.exists({username}).exec();
+    const usernameExist = await userModel.exists({username}).exec();
     if(usernameExist){
         return res.status(422).json({"Error" : "Le nom utilisateur existe déjà."});
     }

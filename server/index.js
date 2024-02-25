@@ -12,8 +12,8 @@ router = require('./routes/mainRoute');
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
-app.use(cors());
-app.use(helmet());
+// app.use(cors());
+// app.use(helmet());
 
 //Connexion à la base donnée
 dbConnect();
