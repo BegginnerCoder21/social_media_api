@@ -27,7 +27,18 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
+    },
+    description: {
+        type: String
+    },
+    from: {
+        type : String
+    },
+    relationship: {
+        type : String,
+        enum: [1, 2, 3]
     }
+
 });
 
 const User = mongoose.model('User', userSchema);

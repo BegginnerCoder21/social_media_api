@@ -14,18 +14,17 @@ const register = async(req, res) => {
     }
 
      
-    const usernameExist = await userModel.exists({username}).exec();
-    if(usernameExist){
-        return res.status(422).json({"Error" : "Le nom utilisateur existe déjà."});
-    }
-
-    emailExist = await userModel.exists({email}).exec();
-    if(emailExist){
-        return res.status(422).json({"Error" : "L'email existe déjà."});
-    }
- 
     try {
- 
+        const usernameExist = await userModel.exists({username}).exec();
+        if(usernameExist){
+            return res.status(422).json({"Error" : "Le nom utilisateur existe déjà."});
+        }
+    
+        const emailExist = await userModel.exists({email});
+        if(emailExist){
+            return res.status(422).json({"Error" : "L'email existe déjà."});
+        }
+     
         const hashedPassword = await bcrypt.hash(newPassword, 10);
         
         newUser = await userModel.create({
