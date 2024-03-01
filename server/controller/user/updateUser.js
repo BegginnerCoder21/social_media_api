@@ -19,7 +19,7 @@ const updateUser = async(req, res) => {
         }
        
         const hashedpassword = await bcrypt.hash(password,10);
-        const update_user = await userModel.findByIdAndUpdate(idUser, {$set: {password : hashedpassword,description}},{new: true});
+        const update_user = await userModel.findByIdAndUpdate(idUser, {$set: {password : hashedpassword,description}},{new: true}); 
         
         return res.status(200).json({"Success" : "Mise a jour effectué avec succès",update_user});
     } catch (error) {
