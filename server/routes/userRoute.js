@@ -4,6 +4,7 @@ const destroyUser = require('../controller/user/destroyUser');
 const getUsers = require('../controller/user/getUsers');
 const getSpecificUser = require('../controller/user/getSpecificUser');
 const followUser = require('../controller/user/followUser');
+const unfollowUser = require('../controller/user/unfollowUser');
 const userRouter = express.Router();
 
 
@@ -12,5 +13,6 @@ userRouter.route('/destroyUser/:id').delete(destroyUser);
 userRouter.route('/getUsers').get(getUsers);
 userRouter.route('/getSpecificUser/:id').get(getSpecificUser);
 userRouter.route('/follow/:id').put(followUser);
+userRouter.route('/unfollow/:id').put(unfollowUser);
 
 module.exports = userRouter;
