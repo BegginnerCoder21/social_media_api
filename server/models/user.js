@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
         type: Array,
         default : []
     },
-    unfollowers: {
+    followings: {
         type: Array,
         default: []
     }
