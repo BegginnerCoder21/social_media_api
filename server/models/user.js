@@ -37,6 +37,14 @@ const userSchema = new mongoose.Schema({
     relationship: {
         type : String,
         enum: [1, 2, 3]
+    },
+    followers:{
+        type: Array,
+        default : []
+    },
+    unfollowers: {
+        type: Array,
+        default: []
     }
 
 });

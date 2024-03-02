@@ -16,8 +16,8 @@ const destroyUser = async(req, res) => {
         return res.status(200).json({'success' : "L'utilisateur a bien été supprimé"});
         
     } catch (error) {
-        res.status(500).json(error);
         console.log(error);
+        return res.status(404).json({'error' : 'Utilisateur non trouvé.'});
     }
 }
 
