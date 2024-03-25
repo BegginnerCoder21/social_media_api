@@ -14,7 +14,7 @@ const unfollowUser = async(req, res) => {
         const user = await userModel.findById(idUser);
 
         if(!user.followers.includes(currentUser.id)){
-            return res.status(401).json({"Error" : "Vous ne le suivez pas !"});
+            return res.status(401).json({"Error" : "Vous ne suivez pas cette personne !"});
         }
 
         const updatedCurrentUser = await currentUser.updateOne({$pull : {followings : idUser}}, {new : true});

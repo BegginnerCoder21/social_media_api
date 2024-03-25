@@ -14,7 +14,7 @@ const followUser = async(req, res) => {
         const user = await userModel.findById(idUser);
 
         if(user.followers.includes(currentUser.id)){
-            return res.status(401).json({"Error" : "Vous le suivez déjà !"});
+            return res.status(401).json({"Error" : "Vous suivez déjà cette personne!"});
         }
 
         const updatedCurrentUser = await currentUser.updateOne({$push : {followings : idUser}}, {new : true});
