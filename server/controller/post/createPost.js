@@ -1,3 +1,4 @@
+const postModel = require("../../models/post");
 
 const createPost = async(req, res) => {
 
@@ -8,7 +9,9 @@ const createPost = async(req, res) => {
     }
 
     try {
-        const newPost = new PostModel({userId, description, image});
+        const newPost = new postModel({userId, description, image});
+
+        await newPost.save();
 
         res.status(201).json(newPost);
         
