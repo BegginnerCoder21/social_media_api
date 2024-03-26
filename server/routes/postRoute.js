@@ -3,9 +3,11 @@ const createPost = require('../controller/post/createPost');
 const updatePost = require('../controller/post/updatePost');
 const destroyPost = require('../controller/post/destroyPost');
 const likesPost = require('../controller/post/likesPost');
+const getAllPosts = require('../controller/post/getAllPost');
 const postRouter = express.Router();
 
 postRouter.route('/create-post').post(createPost);
+postRouter.route('/all-posts').get(getAllPosts);
 postRouter.route('/update-post/:id').put(updatePost);
 postRouter.route('/like-dislike-post/:id').put(likesPost);
 postRouter.route('/destroy-post/:id').delete(destroyPost);
